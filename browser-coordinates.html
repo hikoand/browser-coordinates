@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습2. 브라우저 좌표 찾기</title>
+    <style>
+      body {
+        background: rgb(0, 0, 0);
+      }
+      .tag {
+        top: 200px;
+        left: 300px;
+        background-color: rgb(255, 241, 162);
+        width: 100px;
+        height: 100px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      .pink {
+        background: rgb(255, 85, 113);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <div class="tag pink"></div>
+    <div class="tag"></div>
+    <div class="tag"></div>
+    <script>
+      const elem = document.querySelector('.pink');
+
+      const eleRectX = elem.getBoundingClientRect().x;
+      const eleRectY = elem.getBoundingClientRect().y;
+
+      const pageY = elem.offsetTop;
+      const pageX = elem.offsetLeft;
+
+      function printMousePos(event) {
+        console.log(
+          `Clinet: ${eleRectX} , ${eleRectY} , Page: ${[pageY]} , ${pageX}`
+        );
+      }
+
+      document.addEventListener('click', printMousePos);
+    </script>
+  </body>
+</html>
